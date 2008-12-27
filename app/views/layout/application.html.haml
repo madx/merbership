@@ -1,0 +1,26 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/2007/xhtml", :lang => "en-us", "xml-lang" => "en-us"}
+  %head
+    %title Merbership
+    %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+    = css "master"
+  %body#merbership
+    %h1#title Merbership
+
+    %ul#nav_main
+      - if session.user
+        %li= link_to "Logout", "/logout", :title => "Log out"
+        - if session.user.admin?
+          %li= link_to "Functions", resource(:functions), :title => "Function list"
+          %li= link_to "Settings", url(:controller => "settings"), :title => "View and change settings"
+      - else
+        %li= link_to "Login", "/login", :title => "Log into your account"
+      %li= link_to "Members", "/", :title => "Member list"
+
+    #content
+      - if message[:notice]
+        %p.notice= message[:notice]
+      - if message[:error]
+        %p.error= message[:error]
+      = catch_content :for_layout
+

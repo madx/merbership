@@ -3,6 +3,7 @@ log/*
 tmp/*
 TAGS
 *~
+.*sw*
 .#*
 schema/schema.rb
 schema/*_structure.sql

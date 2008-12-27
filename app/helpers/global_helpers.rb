@@ -7,5 +7,17 @@ module Merb
         return false
       end
     end
+
+    def css(stylesheet, opts={})
+      opts = {
+        :href => "/stylesheet/#{stylesheet}",
+        :rel => "stylesheet", 
+        :type => "text/css", 
+        :media => "screen"
+      }.merge!(opts)
+      attributes = ""
+      opts.map{|k,v| attributes << %{#{k}="#{v}" } }
+      "<link %s/>" % attributes
+    end
   end
 end

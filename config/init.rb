@@ -23,3 +23,5 @@ Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.
   require Merb.root + '/config/mail.rb'
 end
+
+Merb::Plugins.config[:haml][:attr_wrapper] = %{"}
