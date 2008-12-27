@@ -1,5 +1,4 @@
-%h1 List of members
-
+%h2 Member list
 
 - unless @members.empty?
   %table
@@ -18,12 +17,14 @@
           %td=member.lastname
           %td=member.function.name
           %td
-            = link_to 'Show', url(:member, member)
+            = link_to 'Show', url(:member, member), :title => "Show details"
           %td
-            = link_to 'Edit', url(:edit_member,  member) if admin? || session.user.id == member.id
+            - if admin? || session.user.id == member.id
+              = link_to 'Edit', url(:edit_member,  member), :title => "Edit this member" 
           %td
-            = link_to 'Delete', resource(member, :delete) if admin? || session.user.id == member.id
+            - if admin? || session.user.id == member.id
+              = link_to 'Delete', resource(member, :delete), :title => "Delete this member" 
 - else
-  %p There are no member. So create one.
+  %p There are no members, you have to create one first.
 
-= link_to 'New', url(:new_member) if admin?
+%p= link_to 'New', url(:new_member), :title => "Add a member" if admin?
