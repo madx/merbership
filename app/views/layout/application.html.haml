@@ -27,3 +27,7 @@
       - if message[:error]
         %p.error= message[:error]
       = catch_content :for_layout
+
+    %p#footer
+      powered by 
+      = link_to "Merbership", "http://github.com/shingara/merbership", :title => "Github Site"
