@@ -1,7 +1,5 @@
 %h2= "Member #{@member.full_name}"
 
-%p= link_to 'Edit',  url(:edit_member,  @member) if admin?
-
 %ul
   - for field  in %w(login firstname lastname email birthdate occupation address city phone_number website)  
     - if @setting.field_show[field]
@@ -11,4 +9,7 @@
   
 
 
-%p= link_to 'Back', url(:members), :title => "Go back to members list"
+%p
+  = link_to 'Edit',  url(:edit_member,  @member) if admin? 
+  |
+  = link_to 'Back', url(:members), :title => "Go back to members list"
