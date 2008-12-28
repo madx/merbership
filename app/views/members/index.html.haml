@@ -1,4 +1,4 @@
-%h2 Member list
+%h2 Members list
 
 - unless @members.empty?
   %table
@@ -7,23 +7,19 @@
         %th Login
         %th Firstname
         %th Lastname
-        %th function
+        %th Function
 
     %tbody
       - for member in @members
         %tr
-          %td=member.login
-          %td=member.firstname
-          %td=member.lastname
-          %td=member.function.name
-          %td
-            = link_to 'Show', url(:member, member), :title => "Show details"
-          %td
-            - if admin? || session.user.id == member.id
-              = link_to 'Edit', url(:edit_member,  member), :title => "Edit this member" 
-          %td
-            - if admin? || session.user.id == member.id
-              = link_to 'Delete', resource(member, :delete), :title => "Delete this member" 
+          %td= member.login
+          %td= member.firstname
+          %td= member.lastname
+          %td= member.function.name
+          %td= link_to 'Show', url(:member, member), :title => "Show details"
+          - if admin? || session.user.id == member.id
+            %td= link_to 'Edit', url(:edit_member,  member), :title => "Edit this member" 
+            %td= link_to 'Delete', resource(member, :delete), :title => "Delete this member" 
 - else
   %p There are no members, you have to create one first.
 
