@@ -10,7 +10,7 @@ module Merb
 
     def css(stylesheet, opts={})
       opts = {
-        :href => "/stylesheet/#{stylesheet}",
+        :href => "/stylesheets/#{stylesheet}.css",
         :rel => "stylesheet", 
         :type => "text/css", 
         :media => "screen"
