@@ -5,17 +5,21 @@
     %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
     = css "master"
   %body#merbership
-    %h1#title Merbership
-
-    %ul#nav_main
-      - if session.user
-        %li= link_to "Logout", "/logout", :title => "Log out"
-        - if session.user.admin?
-          %li= link_to "Functions", resource(:functions), :title => "Function list"
-          %li= link_to "Settings", url(:controller => "settings"), :title => "View and change settings"
+    #header
+      - if @setting
+        %h1== #{@setting.name} member management
       - else
-        %li= link_to "Login", "/login", :title => "Log into your account"
-      %li= link_to "Members", "/", :title => "Member list"
+        %h1 Merbership
+
+      %ul#nav_main
+        - if session.user
+          %li= link_to "Logout", "/logout", :title => "Log out"
+          - if session.user.admin?
+            %li= link_to "Functions", resource(:functions), :title => "Function list"
+            %li= link_to "Settings", url(:controller => "settings"), :title => "View and change settings"
+        - else
+          %li= link_to "Login", "/login", :title => "Log into your account"
+        %li= link_to "Members", "/", :title => "Member list"
 
     #content
       - if message[:notice]
