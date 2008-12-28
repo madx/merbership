@@ -1,7 +1,7 @@
-%p=text_field :subscription_on, :label => 'Date of subscription :'
+%p=text_field :subscription_on, :label => 'Subscription date: '
 - if session.user.admin?
-  %p=select :function_id, :collection => Function.all, :text_method => :name, :value_method => :id, :label => 'Function :'
+  %p=select :function_id, :collection => Function.all, :text_method => :name, :value_method => :id, :label => 'Function: '
 - else
   %p 
-    Function :
+    Function: 
     = @member.function.name

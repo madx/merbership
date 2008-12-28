@@ -4,27 +4,27 @@
 
 = form_for(@member, :action => url(:member, @member)) do
   - if @setting.field_edit['login'] || session.user.admin?
-    %p=text_field :login, :label => 'Login :'
+    %p=text_field :login, :label => 'Login: '
   - if @setting.field_edit['firstname'] || session.user.admin?
-    %p=text_field :firstname, :label => 'Firstname :' 
+    %p=text_field :firstname, :label => 'Firstname: ' 
   - if @setting.field_edit['lastname'] || session.user.admin?
-    %p=text_field :lastname, :label => 'Lastname :' 
+    %p=text_field :lastname, :label => 'Lastname: ' 
   - if @setting.field_edit['email'] || session.user.admin?
-    %p=text_field :email, :label => 'Email :' 
+    %p=text_field :email, :label => 'Email: ' 
   - if @setting.field_edit['birthdate'] || session.user.admin?
-    %p=text_field :birthdate, :label => 'Birth date :' 
+    %p=text_field :birthdate, :label => 'Birth date: ' 
   - if @setting.field_edit['occupation'] || session.user.admin?
-    %p=text_field :occupation, :label => 'Occupation :' 
+    %p=text_field :occupation, :label => 'Occupation: ' 
   - if @setting.field_edit['address'] || session.user.admin?
-    %p=text_field :address, :label => 'Address :' 
+    %p=text_field :address, :label => 'Address: ' 
   - if @setting.field_edit['city'] || session.user.admin?
-    %p=text_field :city, :label => 'City :' 
+    %p=text_field :city, :label => 'City: ' 
   - if @setting.field_edit['phone_number'] || session.user.admin?
-    %p=text_field :phone_number, :label => 'Phone number :' 
+    %p=text_field :phone_number, :label => 'Phone number: ' 
   - if @setting.field_edit['website'] || session.user.admin?
-    %p=text_field :website, :label => 'Website :' 
-  %p= password_field :password, :label => 'Password :'
-  %p= password_field :password_confirmation, :label => 'Password confirmation :'
+    %p=text_field :website, :label => 'Website: ' 
+  %p= password_field :password, :label => 'Password: '
+  %p= password_field :password_confirmation, :label => 'Password confirmation: '
   = partial :form
   %p
     = submit "Update"
